@@ -1,0 +1,44 @@
+# ==========================================
+# MOVIE RECOMMENDATION SYSTEM USING R
+# ==========================================
+
+# 1. Load Libraries
+library(recommenderlab)
+library(dplyr)
+library(ggplot2)
+
+# 2. Load Dataset
+movies <- read.csv("data/movies.csv")
+ratings <- read.csv("data/ratings.csv")
+
+# 3. Data Exploration
+head(movies)
+head(ratings)
+
+summary(ratings)
+
+# 4. Check Missing Values
+colSums(is.na(movies))
+colSums(is.na(ratings))
+
+# 5. Rating Distribution
+ggplot(ratings, aes(x = rating)) +
+  geom_histogram(binwidth = 0.5) +
+  labs(
+    title = "Movie Rating Distribution",
+    x = "Rating",
+    y = "Number of Ratings"
+  )
+
+# 6. Create Rating Matrix
+rating_data <- ratings %>%
+  select(userId, movieId, rating)
+
+# 7. Recommendation Model
+# Model implementation goes here
+
+# 8. Generate Recommendations
+# Recommendation code goes here
+
+# 9. Display Results
+# Print recommended movies
